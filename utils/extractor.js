@@ -27,13 +27,13 @@ export const extractShows = (html) => {
         shows.push(show);
     });
 
-    const page = $(".pagination .selected > a").text();
+    const page = $(".pagination .selected > a")?.attr("data-page");
 
-    const total = $(".pagination .last > a").attr("href").split("=")[1];
+    const total = $(".pagination .last > a")?.attr("data-page");
 
     const pageInfo = {
-        current: parseInt(page),
-        total: parseInt(total)
+        current: parseInt(page ?? 1),
+        total: parseInt(total ?? 1)
     }
 
     return { page: pageInfo, data: shows };
