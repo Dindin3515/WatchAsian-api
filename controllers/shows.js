@@ -23,6 +23,7 @@ export const handleGetShowById = async (req, res) => {
 export const handleGetEpisodeById = async (req, res) => {
     try {
         const id = req.params.id;
+        if(!id || id === "") throw Error("Missing required parameter");
         const show = await service.getEpisodeById(id);
         res.send(show);
     } catch (error) {
