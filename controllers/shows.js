@@ -30,3 +30,14 @@ export const handleGetEpisodeById = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 }
+
+export const handleSearch = async (req, res) => {
+    try {
+        const keyword = req.query.keyword;
+        if(!keyword || keyword === "") throw Error("Missing required parameter");
+        const shows = await service.search(keyword);
+        res.send(shows);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}

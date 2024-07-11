@@ -28,3 +28,12 @@ export const getEpisodeById = async (id) => {
         throw error;
     }
 }
+
+export const search = async (keyword) => {
+    try {
+        const shows = await scraper.scrapeSearch(keyword);
+        return shows;
+    } catch (error) {
+        throw error;
+    }
+}

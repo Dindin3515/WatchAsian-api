@@ -7,6 +7,4 @@ showsRouter.get("/", controller.handleGetAllShows);
 
 showsRouter.get("/:id", controller.handleGetShowById);
 
-showsRouter.get("/episode/:id", controller.handleGetEpisodeById);
-
 export default showsRouter;
