@@ -1,5 +1,4 @@
-export const printWelcome = () => {
-    console.log(`
+export const WELCOME_BANNER = `
         
 ██     ██  █████  ████████  ██████ ██   ██      █████  ███████ ██  █████  
 ██     ██ ██   ██    ██    ██      ██   ██     ██   ██ ██      ██ ██   ██ 
@@ -9,7 +8,9 @@ export const printWelcome = () => {
                                                                                                                                                                                                                                                                         
 Author: Hritik R (https://github.com/HritikR)
 Version: 1.0.0
-        `);
+        `
+export const printWelcome = () => {
+    console.log(WELCOME_BANNER);
 }
 
 export const logger = {
