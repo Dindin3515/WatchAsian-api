@@ -3,5 +3,13 @@ const SERVER = {
     PORT: process.env.PORT || 3000
 }
 
+const DRAMA = {
+    DOMAIN: process.env.DOMAIN || "https://watchasia.to",
+}
 
-export default { SERVER }
+const ENCRYPTION = {
+    KEY: "93422192433952489752342908585752",
+    IV: "9262859232435825"
+}
+
+export default { SERVER, DRAMA, ENCRYPTION };
