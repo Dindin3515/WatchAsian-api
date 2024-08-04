@@ -1,6 +1,10 @@
 import cheerio from "cheerio";
 import { encode } from "./cipher.js";
 
+const extractPageNumber = (url) => {
+    return url.match(/page=(\d+)/)?.[1];
+}
+
 export const extractIdAndDomainFromUrl = (urlText) => {
     const idRegex = /[?&]id=([^&]+)/;
     const domainRegex = /\/\/([^\/]+)/;
@@ -29,7 +33,9 @@ export const extractShows = (html) => {
 
     const page = $(".pagination .selected > a")?.attr("data-page");
 
-    const total = $(".pagination .last > a")?.attr("data-page");
+    const totalLink = $(".pagination .last > a")?.attr("href");
+
+    const total = extractPageNumber(totalLink ?? "");
 
     const pageInfo = {
         current: parseInt(page ?? 1),
