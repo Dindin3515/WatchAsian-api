@@ -25,9 +25,11 @@ export const extractShows = (html) => {
     $(".switch-block > li").each((index, element) => {
         const ele = $(element);
         const id = encode(ele.find("a").attr("href").split("/")[2]);
-        const title = ele.find("h3").text();
+        const titleWithReleaseYear = ele.find("h3").text();
+        const title = titleWithReleaseYear.replace(/\((\d{4})\)/, "").trim();
+        const releaseYear = titleWithReleaseYear.match(/\((\d{4})\)/)?.[1];
         const poster = ele.find("img").attr("data-original");
-        const show = { id, title, poster };
+        const show = { id, title, poster, releaseYear };
         shows.push(show);
     });
 
